@@ -1,0 +1,7 @@
+services:
+ web:
+  image: mateusclira/myresume:php1
+  container_name: myresume
+  restart: always
+  ports:
+   - "80:80"    
