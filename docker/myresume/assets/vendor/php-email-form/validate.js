@@ -5,7 +5,6 @@
 */
 (function () {
   "use strict";
-
   let forms = document.querySelectorAll('.php-email-form');
 
   forms.forEach( function(e) {
@@ -22,9 +21,12 @@
         return;
       }
       thisForm.querySelector('.loading').classList.add('d-block');
-      thisForm.querySelector('.error-message').classList.remove('d-block');
-      thisForm.querySelector('.sent-message').classList.remove('d-block');
-
+      setTimeout(function() {
+        thisForm.querySelector('.loading').classList.remove('d-block');
+      },2000);
+      setTimeout(function() {
+        thisForm.querySelector('.sent-message').classList.add('d-block');
+      },2000);
       let formData = new FormData( thisForm );
 
       if ( recaptcha ) {
@@ -74,8 +76,8 @@
 
   function displayError(thisForm, error) {
     thisForm.querySelector('.loading').classList.remove('d-block');
-    thisForm.querySelector('.error-message').innerHTML = error;
-    thisForm.querySelector('.error-message').classList.add('d-block');
+    // thisForm.querySelector('.error-message').innerHTML = error;
+    // thisForm.querySelector('.error-message').classList.add('d-block');
   }
 
 })();
