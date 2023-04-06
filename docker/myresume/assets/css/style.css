@@ -11,7 +11,7 @@
 body {
   font-family: "Open Sans", sans-serif;
   color: #e1e6ec;
-  background-color: #4f6375;
+  background-color: #56718a;
 }
 
 a {
@@ -416,28 +416,35 @@ section {
 .about .content h3 {
   font-weight: 700;
   font-size: 26px;
-  color: #c2cbd4;
+  color: #d1d4d6;
+  text-align: center;
+}
+
+.about .content h4 {
+  font-size: 25px;
+  color: #d1d4d6;
+  text-align: center;
 }
 
 .about .content ul {
+  font-size: 17px;
   list-style: none;
   padding: 0;
 }
 
 .about .content ul li {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   display: flex;
   align-items: center;
 }
 
 .about .content ul strong {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .about .content ul i {
-  font-size: 16px;
-  margin-right: 5px;
-  color: #0563bb;
+  font-size: 25px;
+  color: #032f58;
   line-height: 0;
 }
 
@@ -1035,7 +1042,7 @@ section {
 --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
-  background: #fff;
+  background: #cccdce;
 }
 
 .contact .info i {
@@ -1076,12 +1083,12 @@ section {
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
   background: #0563bb;
-  color: #fff;
+  color: #cccdce;
 }
 
 .contact .php-email-form {
   width: 100%;
-  background: #fff;
+  background: #cccdce;
 }
 
 .contact .php-email-form .form-group {
@@ -1090,7 +1097,7 @@ section {
 
 .contact .php-email-form .error-message {
   display: none;
-  color: #fff;
+  color: #cccdce;
   background: #ed3c0d;
   text-align: left;
   padding: 15px;
@@ -1103,7 +1110,7 @@ section {
 
 .contact .php-email-form .sent-message {
   display: none;
-  color: #fff;
+  color: #cccdce;
   background: #18d26e;
   text-align: center;
   padding: 15px;
@@ -1112,7 +1119,7 @@ section {
 
 .contact .php-email-form .loading {
   display: none;
-  background: #fff;
+  background: #cccdce;
   text-align: center;
   padding: 15px;
 }
@@ -1125,7 +1132,7 @@ section {
   height: 24px;
   margin: 0 10px -6px 0;
   border: 3px solid #18d26e;
-  border-top-color: #eee;
+  border-top-color: #cccdce;
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
@@ -1149,7 +1156,7 @@ section {
   background: #0563bb;
   border: 0;
   padding: 10px 35px;
-  color: #fff;
+  color: #cccdce;
   transition: 0.4s;
   border-radius: 50px;
 }
@@ -1182,7 +1189,7 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  background: #f7f8f9;
+  background: #cccdce;
   color: #45505b;
   font-size: 14px;
   text-align: center;
@@ -1226,7 +1233,7 @@ section {
 
 #footer .social-links a:hover {
   background: #0678e3;
-  color: #fff;
+  color: #d8d3d3;
   text-decoration: none;
 }
 
