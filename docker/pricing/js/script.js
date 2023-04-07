@@ -2,13 +2,13 @@
 // https://www.bytewebster.com/
 // https://www.bytewebster.com/
 const checkbox = document.getElementById("checkbox");
-const professional = document.getElementById("professional");
+const premium = document.getElementById("premium");
 const master = document.getElementById("master");
-const basic = document.getElementById("basic");
+const free = document.getElementById("free");
 
 checkbox.addEventListener("click", () => {
-  basic.textContent = basic.textContent === "$199.99" ? "$19.99" : "$199.99";
-  professional.textContent =
-    professional.textContent === "$249.99" ? "$24.99 " : "$249.99";
-  master.textContent = master.textContent === "$399.99" ? "$39.99" : "$399.99";
+  free.textContent = free.textContent === "R$0.0" ? "R$0.0" : "R$0.0";
+  premium.textContent =
+    premium.textContent === "R$349.99" ? "R$39.99 " : "R$349.99";
+  master.textContent = master.textContent === "R$3499.99" ? "R$399.99" : "R$3499.99";
 });
