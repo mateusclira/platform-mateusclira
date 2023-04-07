@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing Table UI using HTML, CSS and JavaScript - Bytewebster</title>
+  <!-- https://www.bytewebster.com/ -->
+  <!-- https://www.bytewebster.com/ -->
+  <!-- https://www.bytewebster.com/ -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>Our Pricing</h1>
+    <div class="toggle">
+      <label>Annually </label>
+      <div class="toggle-btn">
+        <input type="checkbox" class="checkbox" id="checkbox" />
+        <label class="sub" id="sub" for="checkbox">
+          <div class="circle"></div>
+        </label>
+      </div>
+      <label> Monthly</label>
+    </div>
+  </header>
+  <div class="cards">
+    <div class="card shadow">
+      <ul>
+        <li class="pack">Free</li>
+        <li id="basic" class="price bottom-bar">&dollar;0.00</li>
+        <li class="bottom-bar">Roadmap</li>
+        <li class="bottom-bar">Lives</li>
+        <li class="bottom-bar">Hmmm</li>
+        <li class="bottom-bar">hmmmmmm</li>
+        <li><button class="btn">Order Now</button></li>
+      </ul>
+    </div>
+    <div class="card active">
+      <ul>
+        <li class="pack">Premium</li>
+        <li id="professional" class="price bottom-bar">&dollar;4.99</li>
+        <li class="bottom-bar">Everything on Free plan</li>
+        <li class="bottom-bar">Mentoring with 10 people max</li>
+        <li class="bottom-bar">hmmm</li>
+        <li class="bottom-bar">Uhmmmmm</li>
+        <li><button class="btn active-btn">Order Now</button></li>
+      </ul>
+    </div>
+    <div class="card shadow">
+      <ul>
+        <li class="pack">Master</li>
+        <li id="master" class="price bottom-bar">&dollar;24.99</li>
+        <li class="bottom-bar">Everything on premium plan</li>
+        <li class="bottom-bar">Individual 1 hour weekly Mentoring</li>
+        <li class="bottom-bar">hmmm</li>
+        <li class="bottom-bar">Hmmmmmmmmmm</li>
+        <li><button class="btn">Order Now</button></li>
+      </ul>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>

@@ -876,11 +876,11 @@ section {
 }
 
 .free .iconbox-blue i {
-  color: #6a5ce4;
+  color: #6a5ce0;
 }
 
 .free .iconbox-blue:hover {
-  background: #5555db;
+  background: #3737ad;
 }
 
 .free .iconbox-blue:hover .icon i {
@@ -888,7 +888,7 @@ section {
 }
 
 .free .iconbox-blue:hover .icon path {
-  fill: #3d30af;
+  fill: #6c5fe0;
 }
 
 .free .iconbox-orange i {
@@ -1232,6 +1232,13 @@ section {
 .contact .php-email-form {
   width: 100%;
   background: #cccdce;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30%;
 }
 
 .contact .php-email-form .form-group {
