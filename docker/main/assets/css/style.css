@@ -880,7 +880,7 @@ section {
 }
 
 .free .iconbox-blue:hover {
-  background: #3737ad;
+  background: #2b2b7a;
 }
 
 .free .iconbox-blue:hover .icon i {
@@ -888,7 +888,23 @@ section {
 }
 
 .free .iconbox-blue:hover .icon path {
-  fill: #6c5fe0;
+  fill: #7569dd;
+}
+
+.free .iconbox-green i {
+  color: #46ca5c;
+}
+
+.free .iconbox-green:hover {
+  background: #21631c;
+}
+
+.free .iconbox-green:hover .icon i {
+  color: #fff;
+}
+
+.free .iconbox-green:hover .icon path {
+  fill: #51d458;
 }
 
 .free .iconbox-orange i {
@@ -909,6 +925,10 @@ section {
 
 .free .iconbox-pink i {
   color: #e80368;
+}
+
+.free .iconbox-pink:hover {
+  background: #7e0338;
 }
 
 .free .iconbox-pink:hover .icon i {
@@ -1052,14 +1072,17 @@ section {
   color: #e80368;
 }
 
+.premium .iconbox-pink:hover {
+  background: #68042f;
+}
+
 .premium .iconbox-pink:hover .icon i {
   color: #fff;
 }
 
 .premium .iconbox-pink:hover .icon path {
-  fill: #e80368;
+  fill: #e0106a;
 }
-
 .premium .iconbox-yellow i {
   color: #ffbb2c;
 }
@@ -1129,7 +1152,7 @@ section {
 
 .testimonials .testimonial-item h4 {
   font-size: 14px;
-  color: #999;
+  color: #e2e0e0;
   margin: 0 0 15px 0;
 }
 
@@ -1260,7 +1283,7 @@ section {
 
 .contact .php-email-form .sent-message {
   display: none;
-  color: #cccdce;
+  color: #ffffff;
   background: #18d26e;
   text-align: center;
   padding: 15px;
@@ -1269,7 +1292,7 @@ section {
 
 .contact .php-email-form .loading {
   display: none;
-  background: #cccdce;
+  background: #424242;
   text-align: center;
   padding: 15px;
 }
@@ -1306,7 +1329,7 @@ section {
   background: #0563bb;
   border: 0;
   padding: 10px 35px;
-  color: #cccdce;
+  color: #ffffff;
   transition: 0.4s;
   border-radius: 50px;
 }
