@@ -890,7 +890,7 @@ section {
 }
 
 .free .iconbox-green:hover {
-  background: #21631c;
+  background: #094705;
 }
 
 .free .iconbox-green:hover .icon i {
@@ -959,6 +959,10 @@ section {
 
 .free .iconbox-teal i {
   color: #11dbcf;
+}
+
+.free .iconbox-teal:hover {
+  background: #065c56;
 }
 
 .free .iconbox-teal:hover .icon i {
