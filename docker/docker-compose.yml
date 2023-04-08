@@ -1,7 +1,7 @@
 services:
  web:
-  image: mateusclira/myresume:php1
-  container_name: myresume
+  image: mateusclira/myplatform:php1
+  container_name: myplatform
   restart: always
   ports:
    - "80:80"    

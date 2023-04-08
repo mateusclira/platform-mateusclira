@@ -7,7 +7,7 @@ RUN a2enmod rewrite
 
 WORKDIR /var/www/html
 
-COPY myresume .
+COPY main .
 
 EXPOSE 80/tcp
 CMD ["apache2-foreground"]
