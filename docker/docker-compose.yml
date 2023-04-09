@@ -1,6 +1,6 @@
 services:
  web:
-  image: mateusclira/myplatform:php1
+  image: mateusclira/myplatform:v1
   container_name: myplatform
   restart: always
   ports:

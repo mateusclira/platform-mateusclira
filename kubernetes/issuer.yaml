@@ -5,7 +5,7 @@ metadata:
 spec:
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory
-    email: mateus@mateusclira.tech
+    email: mateusc.lira@gmail.com
     privateKeySecretRef:
       name: letsencrypt
     solvers:
