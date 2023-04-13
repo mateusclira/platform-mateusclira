@@ -264,7 +264,7 @@ h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #373f47;
+  color: #fdfdfd;
 }
 
 .mobile-nav-active {
@@ -280,6 +280,7 @@ h6 {
   background-color: #0563bb;
 }
 
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -291,11 +292,17 @@ h6 {
   position: relative;
 }
 
-@media (min-width: 992px) {
+@media only screen and (max-width: 768px) {
+  #hero {
+    background-position: center;
+  }
+}
+
+/* @media (min-width: 992px) {
   #hero {
     padding-left: 160px;
   }
-}
+} */
 
 #hero:before {
   content: "";
@@ -1224,20 +1231,20 @@ section {
   transition: all 0.3s ease-in-out;
 }
 
-.contact .info h4 {
+/* .contact .info h4 {
   padding: 0 0 0 60px;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
   color: #45505b;
-}
+} */
 
-.contact .info p {
+/* .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
   color: #728394;
-}
+} */
 
 .contact .info .email,
 .contact .info .phone {
@@ -1252,19 +1259,14 @@ section {
 }
 
 .contact .php-email-form {
-  width: 100%;
+  width: 50%;
   background: #cccdce;
-}
+} 
 
-.form-container {
+ .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 30%;
-}
-
-.contact .php-email-form .form-group {
-  padding-bottom: 8px;
 }
 
 .contact .php-email-form .error-message {
@@ -1314,21 +1316,26 @@ section {
   border-radius: 12px;
   box-shadow: none;
   font-size: 14px;
-  margin: 1vh 0 1vh 0; 
+  margin: 1vh 0vh 1vh 3vh;
+  padding: 5% 5%;
 }
 
 .contact .php-email-form input {
-  height: 44px;
+  height: 60%;
+  width: 80%;
+  padding: 5% 6%;
+  margin-top: 2vh;
 }
 
 .contact .php-email-form textarea {
-  padding: 10px 12px;
+  padding: 15% 15%;
 }
 
 .contact .php-email-form button[type=submit] {
   background: #FFA500;
   border: 0;
-  padding: 10px 35px;
+  padding: 2% 7%;
+  margin-bottom: 3vh;
   color: #000000;
   transition: 0.4s;
   border-radius: 50px;

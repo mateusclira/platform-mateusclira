@@ -19,7 +19,7 @@ remote_state {
   backend = "azurerm"
   config = {
     storage_account_name   = "mateuscliratfstate"
-    key                    = "STORAGE_KEY"
+    key                    = "dhmfJ5huYQIB5WK2RJ8JL7NhE7UUa+DWsnqWdrY8tzoioz2xbnda79H3UZgtvjmCU/PEWvHcf+A9+AStP0TDxw=="
     container_name         = "mateuscliratfstatect"
     resource_group_name    = "mateusclira-tfstate"
   }
