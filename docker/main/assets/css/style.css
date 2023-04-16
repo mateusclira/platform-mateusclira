@@ -1269,6 +1269,12 @@ section {
   align-items: center;
 }
 
+@media (max-width: 992px) {
+  .contact .php-email-form {
+    width: 100%;
+  }
+}
+
 .contact .php-email-form .error-message {
   display: none;
   color: #cccdce;
