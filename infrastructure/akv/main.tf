@@ -1,3 +1,5 @@
+data "azurerm_client_config" "current" {}
+
 resource "azurerm_key_vault" "main" {
   name                        = "kv-${var.cname}"
   location                    = var.region
@@ -19,10 +21,31 @@ resource "azurerm_key_vault" "main" {
 
     secret_permissions = [
       "Get",
+      "Set",
+      "List"
     ]
 
     storage_permissions = [
       "Get",
+    ]
+  }
+
+    access_policy {
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
+
+    key_permissions = [
+      "Get"
+    ]
+
+    secret_permissions = [
+      "Get",
+      "Set",
+      "List"
+    ]
+
+    storage_permissions = [
+      "Get"
     ]
   }
 }
