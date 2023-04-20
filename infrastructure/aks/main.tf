@@ -9,7 +9,6 @@ resource "azurerm_kubernetes_cluster" "main" {
     node_count = "2"
     vm_size    = "Standard_B2s"
   }
-
   identity {
     type = "SystemAssigned"
   }

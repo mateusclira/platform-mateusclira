@@ -26,4 +26,17 @@ module "aks" {
   source = "./aks"
   cname  = var.cname
   region = var.region
+
+}
+
+module "akv" {
+  source = "./akv"
+  cname  = var.cname
+  region = var.region
+
+  k8s_object_id = module.aks.k8s_object_id
+
+  depends_on = [
+    module.aks
+  ]
 }
