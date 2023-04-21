@@ -1,4 +1,8 @@
 data "azurerm_client_config" "current" {}
+data "azurerm_kubernetes_cluster" "current" {
+  name                = "k8s-${var.cname}"
+  resource_group_name = "platform-${var.cname}"
+}
 
 resource "azurerm_key_vault" "main" {
   name                        = "kv-${var.cname}"
@@ -13,7 +17,7 @@ resource "azurerm_key_vault" "main" {
 
   access_policy {
     tenant_id = "4565bb37-9773-4d2e-80b6-398babdc2a33"
-    object_id = var.k8s_object_id
+    object_id = data.azurerm_kubernetes_cluster.current.identity.0.principal_id
 
     key_permissions = [
       "Get",
@@ -48,26 +52,4 @@ resource "azurerm_key_vault" "main" {
       "Get"
     ]
   }
-}
-
-resource "random_string" "main" {
-  length  = 12
-  special = true
-  upper   = true
-}
-
-resource "azurerm_key_vault_secret" "k8s" {
-  name         = "k8s-secret"
-  value        = "${random_string.main.result}"
-  key_vault_id = azurerm_key_vault.main.id
-}
-
-resource "kubernetes_secret" "argoSecret" {
-  metadata {
-    name = "argo-secret"
-  }
-  data = {
-    "argo-secret-name" = base64encode(azurerm_key_vault_secret.k8s.value)
-  }
-  type = "Opaque"
 }

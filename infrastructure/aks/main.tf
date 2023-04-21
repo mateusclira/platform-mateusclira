@@ -13,25 +13,3 @@ resource "azurerm_kubernetes_cluster" "main" {
     type = "SystemAssigned"
   }
 }
-
-resource "random_string" "main" {
-  length  = 12
-  special = true
-  upper   = true
-}
-
-resource "azurerm_key_vault_secret" "k8s" {
-  name         = "k8s-secret"
-  value        = "${random_string.main.result}"
-  key_vault_id = var.kv_id
-}
-
-resource "kubernetes_secret" "argoSecret" {
-  metadata {
-    name = "argo-secret"
-  }
-  data = {
-    "argo-secret-name" = base64encode(azurerm_key_vault_secret.k8s.value)
-  }
-  type = "Opaque"
-}
