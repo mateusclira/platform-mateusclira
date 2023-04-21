@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: .*/mateusclira/.*
+    kms: arn:aws:kms:us-east-1:229735897001:key/aa3b4bb1-30ca-4745-a124-387c9af75f85
+    encrypted_regex: "^(data|stringData|global|apiKey|cfToken|privatekey|publickey)$"
