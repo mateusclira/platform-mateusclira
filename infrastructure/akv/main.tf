@@ -16,7 +16,7 @@ resource "azurerm_key_vault" "main" {
   sku_name = "standard"
 
   access_policy {
-    tenant_id = "4565bb37-9773-4d2e-80b6-398babdc2a33"
+    tenant_id = data.azurerm_kubernetes_cluster.current.tenant_id
     object_id = data.azurerm_kubernetes_cluster.current.identity.0.principal_id
 
     key_permissions = [
