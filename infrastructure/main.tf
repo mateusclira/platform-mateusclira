@@ -31,8 +31,6 @@ module "aks" {
   cname  = var.cname
   region = var.region
 
-  kv_id = module.akv.kv_id
-
   depends_on = [
     azurerm_resource_group.main
   ]
@@ -46,6 +44,7 @@ module "akv" {
   k8s_object_id = module.aks.id
 
   depends_on = [
-    azurerm_resource_group.main
+    azurerm_resource_group.main,
+    module.aks
   ]
 }

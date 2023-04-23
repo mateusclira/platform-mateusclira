@@ -3,26 +3,18 @@ kind: Secret
 metadata:
     name: private-repo-creds
     namespace: argocd
-    labels:
-        argocd.argoproj.io/secret-type: repo-creds
+type: Opaque
 stringData:
-    type: ENC[AES256_GCM,data:Wqsp,iv:0+w/4eG8AIGFR3VKlOkxZ0A9A2ORsTkVVc07RA+9vLI=,tag:nhHVvDT6VSRltDBEJwZDUg==,type:str]
-    url: ENC[AES256_GCM,data:10TCdoWaalGOuwOEPvP63Ojjnz1g81bGglLE2VzD,iv:pusyYY+yaUOy+cV/bKfLgT+BsHTH7geCQkYvpxxwQfM=,tag:UOQbfbSeeVUwraDlt4iBzQ==,type:str]
-    githubAppID: ENC[AES256_GCM,data:HAId8mJV,iv:piRBB+BefBSRyVcWLqnO9jqmzwlO1p/mnoTyeW8HYJI=,tag:N/gsi+E+1GNNB06U84PmwQ==,type:str]
-    githubAppInstallationID: ENC[AES256_GCM,data:+rJUWMEtyAw=,iv:8lcv0W5LsyhFOg4pSzeDeQrB5qlynyGduaSBq80a3yA=,tag:NZ8Fj6fcRQ6cejVK0t5gQQ==,type:str]
-    githubAppPrivateKey: ENC[AES256_GCM,data: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,iv:I4oC5ZVJtv5ptD5fna7wcndqP31wewAdLVzH5+O1i3k=,tag:8f0PoXYI/SE3UVj65RLOvg==,type:str]
+    client_id: ENC[AES256_GCM,data:ooP/+869Q7m3PGo=,iv:WfVmuLGRmO3ch/92XLPhsSqGmcJMVP4t2kD2xqMG1r4=,tag:2FXTIkrVW/PZ/yFzIJoeVg==,type:str]
+    access_token: ENC[AES256_GCM,data:hfgB0tSOots2oKO1JB66w6F3RFwvOSfCjmSxntjXsb814DZpm0qJ3A==,iv:tjuPPDQCFchVu1qd7H7ZGXm9kL7e9i3jnqRhHgMoo0k=,tag:IqKzTahSsKat47YMgoZWPQ==,type:str]
 sops:
-    kms:
-        - arn: arn:aws:kms:us-east-1:229735897001:key/aa3b4bb1-30ca-4745-a124-387c9af75f85
-          created_at: "2022-10-28T20:29:41Z"
-          enc: AQICAHhfXblABnrITld8DrFwwOcmnFumpdqr1mlSaK1lytcBTwEkUB8WALs6VVGEuo1wTJnmAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM9ImtdG6pg2ZBlbJ3AgEQgDtayC0jC4Lk5g0b8Pc08w9+iqBwoP/tmUQ7+XIXsCWR2f8r6whv22/cSrQruB1zp4WgV0fTJncdcA3Jzg==
-          aws_profile: ""
+    kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2022-10-28T20:29:42Z"
-    mac: ENC[AES256_GCM,data:AelDHTJrXPZFYdFbkq3y0AwyK7tle4Z9viJoBLjHb4P5gkcTrl9f6aM2FIKWUhdn4W/kZDyRivXSiXuGImYP3VZjXCTpoWOtodG8P2spXiP9aj2RPg7APsfLHwyYBxNV8Os5WX6DRYqr7Nq48dfX8QOoU0DD6LtP5yaWxH0nMjc=,iv:n2eebjDBWW+a6u5/Krv6dKg7F0WjwSgKNVHCW1HfPMI=,tag:I78RGqECuULAiP3SSp2u5Q==,type:str]
+    lastmodified: "2023-04-23T00:28:58Z"
+    mac: ENC[AES256_GCM,data:QgN8YE/nDb0Cn/j5P/QWCd1V0kyZYlyRNGkDShfZ6yyF3CASHAcqPeosEHCEp2cdF/2x2Ljlg0X76il1BxLz6UiZDRdZ43RDGM5pVGo5IuopR7WQMIsGdAARzIqcO5MHuWfkgQlFtnmqda1rWfC5KrllHNpALh77GvvHV5UtP7w=,iv:+nwtxlkC5V6YyEBV4QjZ6TyoEpuVTmOtXPZBIo9Pj3A=,tag:isRhBg9eL0VCROxrXcXqog==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData|global|apiKey|cfToken|privatekey|publickey)$
     version: 3.7.3

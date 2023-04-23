@@ -29,10 +29,3 @@ patches:
     - op: add
       path: /metadata/annotations/external-dns.alpha.kubernetes.io~1hostname
       value: 'argocd.mateusclira.tech'
-- target:
-    kind: ServiceAccount
-    name: argocd-repo-server
-  patch: |-
-    - op: add
-      path: /metadata/annotations/eks.amazonaws.com~1role-arn
-      value: 'arn:aws:iam::229735897001:role/argo'

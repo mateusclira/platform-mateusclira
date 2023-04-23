@@ -75,24 +75,6 @@ resource "azurerm_key_vault" "main" {
   }
 }
 
-resource "random_password" "k8s" {
-  length           = 16
-  special          = true
-  override_special = "_%@"
-}
-
-resource "azurerm_key_vault_secret" "k8s" {
-  name         = "k8s-${var.cname}" 
-  value        = random_password.k8s.result
-  key_vault_id = azurerm_key_vault.main.id
-}
-
-resource "azurerm_role_assignment" "argo" {
-  scope                = data.azurerm_subscription.primary.id
-  role_definition_name = "Contributor"
-  principal_id         = azuread_service_principal.argo_sp.object_id
-}
-
 resource "azuread_application" "argo_app" {
   display_name = "argo-${var.cname}"
   owners       = [data.azurerm_client_config.current.object_id]
@@ -102,4 +84,10 @@ resource "azuread_service_principal" "argo_sp" {
   application_id               = azuread_application.argo_app.application_id
   app_role_assignment_required = false
   owners                       = [data.azurerm_client_config.current.object_id]
+}
+
+resource "azurerm_role_assignment" "argo" {
+  scope                = data.azurerm_subscription.primary.id
+  role_definition_name = "Azure Kubernetes Service RBAC Cluster Admin"
+  principal_id         = azuread_service_principal.argo_sp.object_id
 }
