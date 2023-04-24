@@ -17,7 +17,7 @@ resource "azurerm_key_vault_key" "kms" {
       time_before_expiry = "P30D"
     }
 
-    expire_after         = "P70Y"
+    expire_after         = "P365D"
     notify_before_expiry = "P29D"
   }
 }

@@ -46,11 +46,10 @@ module "kms" {
   source = "./kms"
   cname  = var.cname
   region = var.region
-
+  
   akv_id = module.akv.kv_id
 
   depends_on = [
-    azurerm_resource_group.main,
-    module.akv
+    azurerm_resource_group.main
   ]
 }
