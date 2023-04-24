@@ -1,9 +1,5 @@
 data "azurerm_client_config" "current" {}
 data "azurerm_subscription" "primary" {}
-data "azurerm_kubernetes_cluster" "current" {
-  name                = "k8s-${var.cname}"
-  resource_group_name = "platform-${var.cname}"
-}
 
 resource "azurerm_key_vault" "main" {
   name                        = "kv-${var.cname}"
@@ -85,30 +81,4 @@ resource "azurerm_role_assignment" "argo" {
   scope                = data.azurerm_subscription.primary.id
   role_definition_name = "Azure Kubernetes Service RBAC Cluster Admin"
   principal_id         = azuread_service_principal.argo_sp.object_id
-}
-
-resource "azurerm_key_vault_key" "kms" {
-  name         = "kms-${var.cname}"
-  key_vault_id = azurerm_key_vault.main.id
-  key_type     = "RSA"
-  key_size     = 2048
-
-  key_opts = [
-    "decrypt",
-    "encrypt",
-    "sign",
-    "unwrapKey",
-    "verify",
-    "wrapKey"
-  ]
-
-  rotation_policy {
-    automatic {
-      time_before_expiry = "P30D"
-    }
-
-    expire_after         = "P70Y"
-    notify_before_expiry = "P29D"
-  }
-
 }

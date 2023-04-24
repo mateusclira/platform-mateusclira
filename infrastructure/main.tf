@@ -10,10 +10,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = ">=2.46.0"
     }
-    kubernetes = {
-      source = "hashicorp/kubernetes"
-      version = ">=2.18.1"
-    }
   }
 }
 
@@ -41,10 +37,20 @@ module "akv" {
   cname  = var.cname
   region = var.region
 
-  k8s_object_id = module.aks.id
+  depends_on = [
+    azurerm_resource_group.main
+  ]
+}
+
+module "kms" {
+  source = "./kms"
+  cname  = var.cname
+  region = var.region
+
+  akv_id = module.akv.kv_id
 
   depends_on = [
     azurerm_resource_group.main,
-    module.aks
+    module.akv
   ]
 }
