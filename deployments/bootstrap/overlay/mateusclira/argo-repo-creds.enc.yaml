@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Secret
+metadata:
+    name: argo-repo-creds
+    namespace: argocd
+type: Opaque
+stringData:
+    username: ENC[AES256_GCM,data:KmAYHwQaHcdKDrE=,iv:b+kRGBmrrXlCFzDeLXGvOYe87hFZX8Eq/PimE4ZxLbA=,tag:PvAxkiOHf+oMDSG6il66ww==,type:str]
+    token: ENC[AES256_GCM,data:YqlCQKOBSj/r0Z1LD6dueUf5+azK5aRL+J4guV2m7BDNMVg5m1p5gg==,iv:ZChaTOIy5pfRKs6yUtP3fqxYHdZFkEzF/Pq1Oz8qkGA=,tag:C0hxvv0wtQZ+9HXzB2IYJA==,type:str]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv:
+        - vault_url: https://kv-liratech.vault.azure.net
+          name: kms-liratech
+          version: e625e83e0b6648b9a02cf5ecd674224b
+          created_at: "2023-05-10T00:02:55Z"
+          enc: hicJVYEA-eL5RyU-GmKz-sEipjgG0gJNIHplHo-nDRyuYr12K3xwKrDHiwjSA28u2HVCuKeq7kTbNKrDXxZxDD9F3rakQrnS7EFWQLFWa2p1VjzpJ-kLsKOUYaW6_MIH3oUXz8t9A3D_0jn_2e1s1OmEa7uyBFEFYtDPLC5FkRRQLP1X9i5IbDdjsdAo9Nw3EOfHQ3D733Kp2oL46XcvIXuiOdwREMP7P7SrfIOLq-RzY5KHCtk2vEVJ0MOWsBIgwXDtmjAYQsjGLkgdHw_CB4hFS-ewmPDEtEFQQQBFnYdNJmkhY7Ad8bvfvL6k7I2IEMcY3R-YMExLqxWSqfXIbw
+    hc_vault: []
+    age: []
+    lastmodified: "2023-05-10T00:02:56Z"
+    mac: ENC[AES256_GCM,data:fvw4VBswhnVw+vG1/ZC/7koSCq6HS1xVldWJlmri2EZLw8fty/8ZG7WhzwEgjua44HKGFFJDt0WzZ1y9IaDEiVY+n66RUU/YWaEhR+Yc3hd61N8/MTLA8o018eUT0Aiqp8NUoiZielLe5NbGlzdXYFGWN7xWz0HjmMftCauSPqI=,iv:N1VX2ksEmLiimkXAgl+A6nFvZmbs4FrbCN84qYogqmI=,tag:iky5mPF4hSmlmG8JgzjGBw==,type:str]
+    pgp: []
+    encrypted_regex: ^(data|stringData|global|apiKey|cfToken|privatekey|publickey)$
+    version: 3.7.3

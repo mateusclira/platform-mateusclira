@@ -25,7 +25,9 @@ resource "azurerm_key_vault" "main" {
       "Update",
       "GetRotationPolicy",
       "SetRotationPolicy",
-      "List"
+      "List",
+      "Encrypt",
+      "Decrypt",
     ]
 
     secret_permissions = [
@@ -52,7 +54,9 @@ resource "azurerm_key_vault" "main" {
       "Update",
       "GetRotationPolicy",
       "SetRotationPolicy",
-      "List"
+      "List",
+      "Encrypt",
+      "Decrypt"
     ]
 
     secret_permissions = [

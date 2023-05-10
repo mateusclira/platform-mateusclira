@@ -1,4 +1,4 @@
 creation_rules:
   - path_regex: .*/mateusclira/.*
-    azure_keyvault: https://kv-liratech.vault.azure.net/keys/kms-liratech/38a0e6f5ae3c4df29eb41dcb9ce8cb01
+    azure_keyvault: https://kv-liratech.vault.azure.net/keys/kms-liratech/e625e83e0b6648b9a02cf5ecd674224b
     encrypted_regex: "^(data|stringData|global|apiKey|cfToken|privatekey|publickey)$"
