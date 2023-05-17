@@ -23,3 +23,13 @@ spec:
             name: landing
             port:
               number: 80
+  - host: "grafana.mateusclira.tech"
+    http:
+      paths:
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: my-kube-prometheus-stack-grafana
+            port:
+              number: 3000

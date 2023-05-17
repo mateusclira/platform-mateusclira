@@ -1,4 +1,6 @@
 .env
+*.tgz
+*.dec.*
 
 # Local .terraform directories
 **/.terraform/*
