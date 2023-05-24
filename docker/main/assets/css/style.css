@@ -201,7 +201,7 @@ h6 {
 .nav-menu a span,
 .nav-menu a:focus span {
   padding: 0 5px 0 7px;
-  color: #373f47;
+  color: #fafafa;
 }
 
 @media (min-width: 992px) {
@@ -214,7 +214,7 @@ h6 {
   .nav-menu a span,
   .nav-menu a:focus span {
     display: none;
-    color: #919294;
+    color: #ffffff;
   }
 }
 
@@ -264,7 +264,7 @@ h6 {
 }
 
 .mobile-nav-toggle i {
-  color: #fdfdfd;
+  color: #1a1a1a;
 }
 
 .mobile-nav-active {
@@ -876,19 +876,19 @@ section {
   box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
 }
 
-.free .iconbox-blue i {
+.free .iconbox-purple i {
   color: #6a5ce0;
 }
 
-.free .iconbox-blue:hover {
+.free .iconbox-purple:hover {
   background: #2b2b7a;
 }
 
-.free .iconbox-blue:hover .icon i {
+.free .iconbox-purple:hover .icon i {
   color: #fff;
 }
 
-.free .iconbox-blue:hover .icon path {
+.free .iconbox-purple:hover .icon path {
   fill: #7569dd;
 }
 
@@ -978,6 +978,22 @@ section {
 
 .free .iconbox-teal:hover .icon path {
   fill: #11dbcf;
+}
+
+.free .iconbox-blue i {
+  color: #1169db;
+}
+
+.free .iconbox-blue:hover {
+  background: #063a5c;
+}
+
+.free .iconbox-blue:hover .icon i {
+  color: #fff;
+}
+
+.free .iconbox-blue:hover .icon path {
+  fill: #1169db;
 }
 
 /*--------------------------------------------------------------
