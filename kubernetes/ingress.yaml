@@ -11,7 +11,7 @@ spec:
   tls:
   - hosts:
     - "mateusclira.tech"
-    secretName: tls-secret
+    secretName: my-tls
   rules:
   - host: "mateusclira.tech"
     http:
@@ -23,13 +23,3 @@ spec:
             name: landing
             port:
               number: 80
-  - host: "grafana.mateusclira.tech"
-    http:
-      paths:
-      - path: /(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: my-kube-prometheus-stack-grafana
-            port:
-              number: 3000

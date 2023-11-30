@@ -1,0 +1,115 @@
+# Default values for helm-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+env: ""
+dnsName: ""
+
+image:
+  repository: solucoesmoderna.azurecr.io
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  bodySize: ""
+  annotations: 
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-prefer-server-ciphers: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 300m
+    nginx.ingress.kubernetes.io/proxy-buffering: "on"
+
+resources: 
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 1
+  maxReplicas: 5
+  type: "Utilization"
+  cpuAverageUtilization: "50"
+  memoryAverageUtilization: "50"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+connString: {}
+
+environment:
+  # Redis__Endpoint: ""
+  # AzureStorageV2__Dominio: ""
+  # ASPNETCORE_ENVIRONMENT: ""
+  # DOTNET_ENVIRONMENT: ""
+  # ETL__Executable: ""
+  # ETL__ValidarEducadores__File: ""
+  # ETL__ValidarAlunos__File: ""
+  # Email__Suporte: ""
+  # Email__SuporteChamado: ""  
+
+secret:
+  # Redis__Token: ""
+  # Redis__ConnectionString: ""
+  # ConnectionStrings__DefaultConnection: ""
+  # ConnectionStrings__AzureBlobStorage: ""
+  # ApplicationInsights__InstrumentationKey: ""
+  # ApplicationInsights__ConnectionString: ""
+  # AzStorageV2__ConnectionString: ""
+  # AzStorageV2__Key: ""
+  # SSO__Authority: ""
+  # SSO__Audience: ""
+  # ConnectionStrings__BusConnection: ""
+  # Bus__SubscriptionName: ""
+  # Services__EstruturaEscolarUri: ""
+  # Services__OctaDesk__ApiKey: ""
+  # Services__M2MEstruturaEscolar__ClientId: ""
+  # Services__M2MEstruturaEscolar__ClientSecret: "" 
+  # Services__M2M__ClientId: ""
+  # Services__M2M__ClientSecret: "" 
+  # Auth0__Api: ""
+  # Auth0__ClientSecret: ""
+  # Auth0__ClientId: ""
+  # Auth0__Roles__GestorSecretariaEducacao: ""
+  # Auth0__Roles__GestorRegional: ""
+  # Auth0__Roles__GestorInstituicao: ""
+  # Auth0__Roles__Professor: ""
+  # Auth0__Roles__Aluno: ""
+  # Auth0__SpaGlobal__ClientId: ""
+  # Auth0__SpaGestaoCadastros__ClientId: ""
+  # Auth0__WebAvaliacao__ClientId: ""
+  # EmailSettings__ApiKey: ""
+  # SendGridApiKey: ""
+
+# DEFINIÇÕES LABELS DATADOG
+
+labels:
+  datadogEnv: # env name
+  datadogService: # app name
+  datadogVersion: # "$(Build.BuildId)"
+  datadogDotNetVersion: v2.35.0
+
+datadogEnv:
+  - name: DD_PROFILING_ENABLED
+    value: "true"
+  - name: DD_LOGS_INJECTION
+    value: "true"     

@@ -1,0 +1,85 @@
+pool:
+  name: Azure Pipelines
+
+trigger: none
+
+parameters:
+- name: resourceGroup
+  type: string    
+  default: 'platform-mateusclira'
+
+- name: aksName
+  type: string    
+  default: ''
+
+stages:
+  - stage: dev
+    displayName: "Development"
+    dependsOn: []
+    variables:
+      - group: dev
+    jobs:
+    - deployment: GetApprovals
+      displayName: "Get Business Owner approval"
+      environment: 'prd'
+      strategy:
+          runOnce:
+            deploy:
+                steps:
+                - script: echo "Approved"
+    - job: azUpdate
+      displayName: "Update Azure Resources"
+      steps:
+      - checkout: self
+      - task: AzureCLI@2
+        displayName: 'Get AKS Credentials'
+        inputs:
+          azureSubscription: "mateusclira sp"
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            az aks get-credentials --name ${{ parameters.aksName }} --overwrite-existing --resource-group ${{ parameters.resourceGroup }}
+
+      - task: AzureCLI@2
+        displayName: 'Deploy Kubernetes'
+        inputs:
+          azureSubscription: "mateusclira sp"
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            kubectl apply -f ./kubernetes
+
+  # - stage: prod
+  #   displayName: "production"
+  #   dependsOn: []
+  #   variables:
+  #     - group: prod
+  #   jobs:
+    # - deployment: GetApprovals
+    #   displayName: "Get Business Owner approval"
+    #   environment: 'prd'
+    #   strategy:
+    #       runOnce:
+    #         deploy:
+    #             steps:
+    #             - script: echo "Approved"
+  #   - job: azUpdate
+  #     displayName: "Update Azure Resources"
+  #     steps:
+  #     - checkout: self
+  #     - task: AzureCLI@2
+  #       displayName: 'Get AKS Credentials'
+  #       inputs:
+  #         azureSubscription: "mateusclira sp"
+  #         scriptType: 'bash'
+  #         scriptLocation: 'inlineScript'
+  #         inlineScript: |
+  #           az aks get-credentials --resource-group $(resourceGroup) --name $(aksName) --overwrite-existing
+  #     - task: AzureCLI@2
+  #       displayName: 'Deploy Kubernetes'
+  #       inputs:
+  #         azureSubscription: "mateusclira sp"
+  #         scriptType: 'bash'
+  #         scriptLocation: 'inlineScript'
+  #         inlineScript: |
+  #           kubectl apply -f ./kubernetes

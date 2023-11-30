@@ -1,0 +1,35 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "helm-chart.fullname" . -}}
+{{- $svcPort := .Values.service.port -}}
+{{- $env := .Values.env -}}
+{{- $dnsname := .Values.dnsName -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-{{ $fullName }}
+  labels:
+    {{- include "helm-chart.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- if and .Values.ingress.className (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion) }}
+  ingressClassName: {{ .Values.ingress.className }}
+  {{- end }}
+  tls:
+    - hosts:
+        - {{ $fullName }}-{{ $env }}-01.{{ $dnsname }}
+      secretName: tls-secret-{{ $fullName }}  
+  rules:
+    - host: {{ $fullName }}-{{ $env }}-01.{{ $dnsname }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-{{ $fullName }}
+                port:
+                  number: {{ $svcPort }}
+{{- end }}

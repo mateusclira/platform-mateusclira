@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: landing
-        image: mateusclira/myplatform:v10
+        image: mateusclira/myplatform
         ports:
         - containerPort: 80
         resources:

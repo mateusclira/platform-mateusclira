@@ -1,0 +1,1 @@
+Deploy in {{ include "helm-chart.fullname" . }} done!

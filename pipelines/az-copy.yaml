@@ -1,0 +1,63 @@
+trigger:
+- none
+
+schedules:
+- cron: "36 14 * * *"
+  displayName: DailyBackup
+  branches:
+    include:
+      - '*'
+
+jobs:
+- job: azUpdate
+  displayName: "Backup Blob Storage"
+  steps:
+  - checkout: self
+  # - task: AzureCLI@2
+  #   displayName: "Update SA Network Rules"
+  #   inputs:
+  #     azureSubscription: "mateusclira sp"
+  #     scriptType: "bash"
+  #     scriptLocation: "inlineScript"
+  #     inlineScript: |
+  #       ips=`az storage account network-rule list -g sandbox --account-name devopsdaysrec --query ipRules[*].ipAddressOrRange -o tsv`
+  #       for ip in $ips; do az storage account network-rule remove -g sandbox --account-name devopsdaysrec --ip-address $ip; done  
+
+  #       CURRENT_IP=`curl checkip.amazonaws.com`
+  #       az storage account network-rule add -g sandbox --account-name devopsdaysrec --ip-address $CURRENT_IP
+   
+  # - task: AzureCLI@2
+  #   displayName: "Update SA Network Rules"
+  #   inputs:
+  #     azureSubscription: "mateusclira sp"
+  #     scriptType: "bash"
+  #     scriptLocation: "inlineScript"
+  #     inlineScript: |
+  #       ips=`az storage account network-rule list -g testeazcopy --account-name azcopytestjeffii --query ipRules[*].ipAddressOrRange -o tsv`
+  #       for ip in $ips; do az storage account network-rule remove -g testeazcopy --account-name azcopytestjeffii --ip-address $ip; done  
+
+  #       CURRENT_IP=`curl checkip.amazonaws.com`
+  #       az storage account network-rule add -g testeazcopy --account-name azcopytestjeffii --ip-address $CURRENT_IP
+  
+  # - task: AzureCLI@2
+  #   displayName: "Await network rule propagation"
+  #   inputs:
+  #     azureSubscription: "mateusclira sp"
+  #     scriptType: "bash"
+  #     scriptLocation: "inlineScript"
+  #     inlineScript: |
+  #       sleep 130
+
+  - task: AzureCLI@2
+    displayName: 'Backup Blob Storage'
+    inputs:
+      azureSubscription: "mateusclira sp"
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        export AZCOPY_AUTO_LOGIN_TYPE=SPN
+        export AZCOPY_SPA_APPLICATION_ID=08a28c83-e3ab-4c19-8d07-3f5333d14d3e
+        export AZCOPY_SPA_CLIENT_SECRET=aQc8Q~yitUDE0E4RHHg-mb0XXYLm~rfwrWNBMcan
+        export AZCOPY_TENANT_ID=4565bb37-9773-4d2e-80b6-398babdc2a33
+        azcopy login --service-principal --application-id 08a28c83-e3ab-4c19-8d07-3f5333d14d3e
+        azcopy cp "https://devopsdaysrec.blob.core.windows.net/azcopy?sp=racwdli&st=2023-11-13T20:03:02Z&se=2025-01-02T04:03:02Z&sv=2022-11-02&sr=c&sig=BYgYzcPzr6QEX783ZIwdv7N1jCh%2B84XRbcg2P7TE4D4%3D" "https://azcopytestjeffii.blob.core.windows.net/azcopytestupload?sp=racwdl&st=2023-11-10T18:32:40Z&se=2024-12-18T02:32:40Z&sv=2022-11-02&sr=c&sig=a%2BY4eSMhKiYqdRr9C%2BUyUVSzO0hQ1DmUkAaNu9n1WWA%3D" --recursive=true

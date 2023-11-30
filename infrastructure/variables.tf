@@ -1,7 +1,7 @@
 variable "cname" {
   description = "Company Name"
   type        = string
-  default     = "liratech"
+  default     = "mateusclira"
 }
 
 variable "region" {
@@ -9,3 +9,6 @@ variable "region" {
   type        = string
   default     = "eastus"
 }
+
+variable "ENV_ID" {}
+variable "SUBSCRIPTION_ID" {}

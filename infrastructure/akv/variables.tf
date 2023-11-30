@@ -1,5 +1,5 @@
-variable "cname" {
-}
+# variable "cname" {
+# }
 
-variable "region" {
-}
+# variable "region" {
+# }

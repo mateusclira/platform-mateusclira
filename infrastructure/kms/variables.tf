@@ -1,8 +1,8 @@
-variable "cname" {
-}
+# variable "cname" {
+# }
 
-variable "region" {
-}
+# variable "region" {
+# }
 
-variable "akv_id" {
-}
+# variable "akv_id" {
+# }

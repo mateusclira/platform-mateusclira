@@ -1,0 +1,63 @@
+pool:
+  name: Azure Pipelines
+
+trigger: none
+
+parameters:
+- name: applyChanges
+  displayName: Apply changes
+  type: boolean
+  default: false
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: "platform-mateusclira"
+      ref: "refs/heads/main" 
+
+stages:
+  - stage: dev
+    displayName: "Development"
+    dependsOn: []
+    variables:
+      - group: dev
+    jobs:
+    - job: azUpdate
+      displayName: "Update Azure Resources"
+      steps:
+        - template: ./templates/az-template.yaml
+          parameters:
+            serviceConnectionName: 'mateusclira sp'
+            applyChanges: ${{ parameters.applyChanges }}
+            terraformRgName: "rg-mateusclira-tf"
+            terraformWorkingFolder:  "./infrastructure"
+            terraformStorageAccountName : "mateuscliratfdev"
+            stage: "dev"
+
+  # - stage: prd
+  #   displayName: "Production"
+  #   dependsOn: dev
+  #   variables:
+  #     - group: "prd"     
+  #   jobs:
+  #   - deployment: GetApprovals
+  #     displayName: "Get Business Owner approval"
+  #     environment: 'prd'
+  #     strategy:
+  #         runOnce:
+  #           deploy:
+  #               steps:
+  #               - script: echo "Approved"
+  #   - job: azureUpdate
+  #     displayName: "Update Azure Resources"
+  #     steps:
+  #       #Execução do Terraform
+  #       - template: templates/az-template.yaml
+  #         parameters:
+  #           applyChanges: ${{ parameters.applyChanges }}
+  #           serviceConnectionName: "mateusclira sp"
+  #           terraformRgName: "rg-mateusclira-tf"
+  #           terraformWorkingFolder:  "./infrastructure"
+  #           terraformStorageAccountName : "mateuscliratfprd"     
+  #           stage: "prd"
